@@ -1,0 +1,32 @@
+.microBtn {
+  display: flex;
+  padding: 20px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.active {
+  border: 2px solid #e79898;
+}
+
+.recognition {
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px 0 rgb(243 20 20 / 58%);
+  }
+
+  65% {
+    box-shadow: 0 0 5px 13px rgb(239 34 34 / 54%);
+  }
+
+  90% {
+    box-shadow: 0 0 5px 13px rgb(255 54 54 / 75%);
+  }
+}

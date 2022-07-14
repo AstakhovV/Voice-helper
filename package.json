@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prettier": "npx prettier --write src/**/*.{ts,tsx}",
     "eslint": "npx eslint --fix --ext .ts,.tsx src",
     "stylelint": "npx stylelint src/**/*.scss --fix"
   },
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@arkweid/lefthook": "^0.7.7",
     "@types/react-speech-recognition": "^3.9.0",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",

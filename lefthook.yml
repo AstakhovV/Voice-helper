@@ -1,0 +1,13 @@
+---
+pre-commit:
+  parallel: false
+  commands:
+    prettier:
+      run: npx prettier --check {staged_files}
+      glob: "src/*.{js,jsx,yml,yaml,ts,tsx,json}"
+    stylelint:
+      run: npx stylelint --fix {staged_files}
+      glob: "src/*.{css,scss}"
+    eslint:
+      run: npx eslint --ext .ts,.tsx {staged_files}
+      glob: "src/**/*.{ts,tsx}"

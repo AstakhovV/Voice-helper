@@ -1,0 +1,28 @@
+.layout {
+  display: grid;
+  grid-auto-columns: 1fr 272px minmax(auto, 712px) 272px 1fr;
+  grid-template-areas:
+    "header header header header header"
+    ". sidebar main main ."
+    ". . footer . .";
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  height: 100vh;
+  background: #000;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}

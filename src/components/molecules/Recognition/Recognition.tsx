@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './Regonition.module.scss';
 import { FaMicrophone } from 'react-icons/fa';
 import React from 'react';
-import { useRecognition } from '../../application/useRecognition';
+import { useRecognition } from '../../../application/useRecognition';
 
 const Recognition = () => {
   const { transcript, interimTranscript, listening, handleToggleListening } =
@@ -11,7 +11,7 @@ const Recognition = () => {
   return (
     <div>
       <h3>Hello World!</h3>
-      <p>{transcript ? transcript : 'Start listening for transcript'}</p>
+      <p>{transcript ? transcript : 'Main listening for transcript'}</p>
       <button
         onClick={handleToggleListening}
         className={clsx(styles.microBtn, {

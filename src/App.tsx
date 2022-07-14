@@ -1,20 +1,18 @@
 import React from 'react';
-import Navbar from './components/atoms/Navbar';
 import { ToastContainer, Zoom } from 'react-toastify';
-import Recognition from './components/molecules/Recognition';
 import RecognitionProvider from './application/useRecognition';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import StartPage from './components/pages/StartPage/StartPage';
 
-function App() {
-  return (
+const App = () => (
+  <BrowserRouter>
     <RecognitionProvider>
-      <div>
-        Voice helper
-        <Navbar />
-        <Recognition />
-        <ToastContainer transition={Zoom} autoClose={1500} />
-      </div>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+      </Routes>
+      <ToastContainer transition={Zoom} autoClose={1500} />
     </RecognitionProvider>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;

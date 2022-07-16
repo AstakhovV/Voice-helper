@@ -1,4 +1,5 @@
 import React from 'react';
+import 'normalize.css';
 import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.scss';

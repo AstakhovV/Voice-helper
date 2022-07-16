@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../atoms/Navbar/Navbar';
 import SideBar from '../atoms/Sidebar/SideBar';
 import styles from './Layout.module.scss';
-import Footer from '../atoms/Footer/Footer';
+import clsx from 'clsx';
 
 interface Props {
   content: () => JSX.Element;
@@ -10,16 +10,15 @@ interface Props {
 
 const Layout = (props: Props) => (
   <div className={styles.layout}>
-    <header className={styles.header}>
+    <header className={clsx(styles.header, 'bg-slate-600 flex justify-center')}>
       <Navbar />
     </header>
-    <aside className={styles.sidebar}>
+    <aside className={clsx(styles.sidebar, 'bg-slate-600 rounded')}>
       <SideBar />
     </aside>
-    <main className={styles.main}>{props.content()}</main>
-    <footer className={styles.footer}>
-      <Footer />
-    </footer>
+    <main className={clsx(styles.main, 'bg-slate-600 rounded')}>
+      {props.content()}
+    </main>
   </div>
 );
 

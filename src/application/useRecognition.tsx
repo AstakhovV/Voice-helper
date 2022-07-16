@@ -3,6 +3,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
 import { toast } from 'react-toastify';
+import { Commands } from '../types/common';
 
 interface Value {
   transcript: string;
@@ -15,17 +16,11 @@ const RecognitionContext = React.createContext<Value>(undefined!);
 
 export const useRecognition = () => React.useContext(RecognitionContext);
 
-const RecognitionProvider = ({ children }: PropsWithChildren<unknown>) => {
-  const commands = [
-    {
-      command: 'Hello',
-      callback: () => console.log('You just said hi!!'),
-    },
-    {
-      command: 'открыть Google',
-      callback: () => window.open('https://www.google.com', '_blank')?.focus(),
-    },
-  ];
+interface Props extends PropsWithChildren<unknown> {
+  commands: Commands[];
+}
+
+const RecognitionProvider = ({ children, commands }: Props) => {
   const {
     transcript,
     browserSupportsSpeechRecognition,

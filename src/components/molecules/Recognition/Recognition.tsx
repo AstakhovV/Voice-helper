@@ -9,9 +9,8 @@ const Recognition = () => {
     useRecognition();
 
   return (
-    <div>
-      <h3>Hello World!</h3>
-      <p>{transcript ? transcript : 'Main listening for transcript'}</p>
+    <div className="flex flex-col items-center gap-5">
+      <p>{transcript ? transcript : 'Текст вашей команды'}</p>
       <button
         onClick={handleToggleListening}
         className={clsx(styles.microBtn, {

@@ -1,12 +1,12 @@
 import create from 'zustand';
 
-type CircuitBreakers = {
+export type CircuitBreakers = {
   first: boolean;
   second: boolean;
   section: boolean;
 };
 
-type Measurement = {
+export type Measurement = {
   name: string;
   value1: number;
   value2: number;

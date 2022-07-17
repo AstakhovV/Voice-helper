@@ -5,7 +5,7 @@ import Recognition from '../../molecules/Recognition/Recognition';
 import { usePower } from '../../../application/usePower';
 
 export const StationControl = () => {
-  const { measurement } = usePower();
+  const { realMeasurement } = usePower();
 
   return (
     <>
@@ -23,7 +23,7 @@ export const StationControl = () => {
             </tr>
           </thead>
           <tbody>
-            {measurement.map((el, i) => (
+            {realMeasurement.map((el, i) => (
               <tr key={i}>
                 <td className="border-2 font-bold">{el.name}</td>
                 <td className="border-2">{`${el.value1} ${el.unit}`}</td>

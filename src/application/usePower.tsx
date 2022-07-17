@@ -1,7 +1,20 @@
-import React, { PropsWithChildren } from 'react';
-import { PowerStation, usePowerStation } from '../store/powerStation.';
+import React, { PropsWithChildren, useEffect } from 'react';
+import {
+  CircuitBreakers,
+  Measurement,
+  usePowerStation,
+} from '../store/powerStation.';
+import { useRealMeasurement } from '../utils/useRealMeasurement';
 
-const PowerStationContext = React.createContext<PowerStation>(undefined!);
+export interface PowerProvider {
+  circuitBreakers: CircuitBreakers;
+  realMeasurement: Measurement[];
+  toggleFirstCB: (value: boolean) => void;
+  toggleSecondCB: (value: boolean) => void;
+  toggleSectionCB: (value: boolean) => void;
+}
+
+const PowerStationContext = React.createContext<PowerProvider>(undefined!);
 
 export const usePower = () => React.useContext(PowerStationContext);
 
@@ -14,20 +27,14 @@ const PowerStationProvider = ({ children }: PropsWithChildren<unknown>) => {
     measurement,
   } = usePowerStation();
 
-  const imitateRealMeasurement = () =>
-    setInterval(
-      () =>
-        measurement.map((el) => {
-          if (el.name === 'Voltage') {
-            return { ...el, value1: el.value1 + 1, value2: el.value2 + 1 };
-          }
+  const { updateMeasurement, realMeasurement } =
+    useRealMeasurement(measurement);
 
-          return el;
-        }),
-      1000,
-    );
+  useEffect(() => {
+    const realValues = setInterval(updateMeasurement, 1000);
 
-  console.log(imitateRealMeasurement());
+    return () => clearInterval(realValues);
+  }, [updateMeasurement]);
 
   const value = React.useMemo(
     () => ({
@@ -35,11 +42,11 @@ const PowerStationProvider = ({ children }: PropsWithChildren<unknown>) => {
       toggleSecondCB,
       toggleSectionCB,
       circuitBreakers,
-      measurement,
+      realMeasurement,
     }),
     [
       circuitBreakers,
-      measurement,
+      realMeasurement,
       toggleFirstCB,
       toggleSecondCB,
       toggleSectionCB,

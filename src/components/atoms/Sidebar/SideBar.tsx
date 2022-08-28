@@ -2,10 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const routes = [
-  { name: 'Records', route: '/' },
-  { name: 'Pyrolysis', route: '/pyrolysis' },
-  { name: 'Polyethylene', route: '/polyethylene' },
+  { name: 'Notes', route: '/' },
   { name: 'Power station', route: '/power' },
+  { name: 'History', route: '/history' },
   { name: 'List all commands', route: '/commands' },
 ];
 

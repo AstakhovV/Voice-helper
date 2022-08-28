@@ -5,13 +5,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PowerStationProvider from './application/usePower';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <PowerStationProvider>
+      <App />
+    </PowerStationProvider>
   </React.StrictMode>,
 );
 

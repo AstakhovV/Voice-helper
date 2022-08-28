@@ -1,4 +1,6 @@
-export interface Commands {
+export interface Command {
+  id: string;
   command: string;
-  callback: () => void;
+  description: string;
+  callback: (note?: string) => void;
 }

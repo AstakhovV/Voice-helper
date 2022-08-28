@@ -3,7 +3,8 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
 import { toast } from 'react-toastify';
-import { Commands } from '../types/common';
+import { Command } from '../types/common';
+import { useHistory } from '../store/history';
 
 interface Value {
   transcript: string;
@@ -17,16 +18,19 @@ const RecognitionContext = React.createContext<Value>(undefined!);
 export const useRecognition = () => React.useContext(RecognitionContext);
 
 interface Props extends PropsWithChildren<unknown> {
-  commands: Commands[];
+  commands: Command[];
 }
 
 const RecognitionProvider = ({ children, commands }: Props) => {
+  const { setItem } = useHistory();
+
   const {
     transcript,
     browserSupportsSpeechRecognition,
     interimTranscript,
     listening,
     finalTranscript,
+    resetTranscript,
   } = useSpeechRecognition({ commands, clearTranscriptOnListen: true });
 
   useEffect(() => {
@@ -36,12 +40,19 @@ const RecognitionProvider = ({ children, commands }: Props) => {
   }, [browserSupportsSpeechRecognition]);
 
   useEffect(() => {
-    if (finalTranscript) SpeechRecognition.stopListening();
-  }, [finalTranscript]);
+    if (finalTranscript) {
+      SpeechRecognition.stopListening();
+      resetTranscript();
+      setItem(transcript);
+    }
+  }, [finalTranscript, resetTranscript, setItem, transcript]);
 
   const handleToggleListening = useCallback(async () => {
     if (listening) SpeechRecognition.stopListening();
-    await SpeechRecognition.startListening({ continuous: true });
+    await SpeechRecognition.startListening({
+      continuous: true,
+      language: 'ru',
+    });
   }, [listening]);
 
   const value = React.useMemo(

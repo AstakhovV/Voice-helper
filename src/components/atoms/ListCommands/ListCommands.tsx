@@ -6,9 +6,13 @@ interface Props {
 }
 
 const ListCommands = ({ commands }: Props) => (
-  <ul className="flex flex-col gap-2">
+  <ul className="flex flex-col gap-2" role="list">
     {commands.map((command) => (
-      <li key={command.id} className="flex gap-4 rounded bg-slate-500 p-2">
+      <li
+        key={command.id}
+        className="flex gap-4 rounded bg-slate-500 p-2"
+        role="listitem"
+      >
         {command.command} - {command.description}
       </li>
     ))}

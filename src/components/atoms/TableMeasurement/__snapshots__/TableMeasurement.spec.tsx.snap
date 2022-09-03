@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render TableMeasurement TableMeasurement renders correctly 1`] = `
+<table
+  class="table-auto w-80 text-black border-2"
+  role="table"
+>
+  <thead>
+    <tr>
+      <th />
+      <th
+        class="border-2"
+      >
+        Line 1
+      </th>
+      <th
+        class="border-2"
+      >
+        Line 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        class="border-2 font-bold"
+      >
+        Voltage
+      </td>
+      <td
+        class="border-2"
+        role="cell"
+      >
+        10.4 kV
+      </td>
+      <td
+        class="border-2"
+      >
+        10.3 kV
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="border-2 font-bold"
+      >
+        Current load
+      </td>
+      <td
+        class="border-2"
+        role="cell"
+      >
+        53 A
+      </td>
+      <td
+        class="border-2"
+      >
+        46 A
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="border-2 font-bold"
+      >
+        Power
+      </td>
+      <td
+        class="border-2"
+        role="cell"
+      >
+        551.2 kVA
+      </td>
+      <td
+        class="border-2"
+      >
+        473.8 kVA
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="border-2 font-bold"
+      >
+        Frequency
+      </td>
+      <td
+        class="border-2"
+        role="cell"
+      >
+        50 Hz
+      </td>
+      <td
+        class="border-2"
+      >
+        49.9 Hz
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

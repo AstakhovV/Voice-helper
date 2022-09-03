@@ -5,7 +5,7 @@ const TableMeasurement = () => {
   const { realMeasurement } = usePower();
 
   return (
-    <table className="table-auto w-80 text-black border-2">
+    <table className="table-auto w-80 text-black border-2" role="table">
       <thead>
         <tr>
           <th />
@@ -17,7 +17,9 @@ const TableMeasurement = () => {
         {realMeasurement.map((el, i) => (
           <tr key={i}>
             <td className="border-2 font-bold">{el.name}</td>
-            <td className="border-2">{`${el.value1} ${el.unit}`}</td>
+            <td className="border-2" role="cell">
+              {`${el.value1} ${el.unit}`}
+            </td>
             <td className="border-2">{`${el.value2} ${el.unit}`}</td>
           </tr>
         ))}

@@ -1,8 +1,6 @@
-import clsx from 'clsx';
-import styles from './Regonition.module.scss';
-import { FaMicrophone } from 'react-icons/fa';
 import React from 'react';
 import { useRecognition } from '../../../application/useRecognition';
+import RecognitionItem from './RecognitionItem';
 
 interface Props {
   placeholder?: string;
@@ -13,18 +11,13 @@ const Recognition = ({ placeholder }: Props) => {
     useRecognition();
 
   return (
-    <div className="flex flex-col items-center gap-5">
-      <p>{transcript ? transcript : placeholder ?? 'Текст вашей команды'}</p>
-      <button
-        onClick={handleToggleListening}
-        className={clsx(styles.microBtn, {
-          [styles.active]: listening,
-          [styles.recognition]: interimTranscript,
-        })}
-      >
-        <FaMicrophone size={60} />
-      </button>
-    </div>
+    <RecognitionItem
+      transcript={transcript}
+      placeholder={placeholder}
+      onClick={handleToggleListening}
+      listening={listening}
+      interimTranscript={interimTranscript}
+    />
   );
 };
 

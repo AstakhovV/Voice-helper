@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Navbar Navbar renders correctly 1`] = `
+<ul
+  class="flex flex-col gap-2"
+  role="list"
+>
+  <li
+    class="flex gap-4 rounded bg-slate-500 p-2"
+  >
+    Render
+     - 
+    Render something
+  </li>
+</ul>
+`;

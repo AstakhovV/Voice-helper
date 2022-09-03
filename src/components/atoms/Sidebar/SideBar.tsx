@@ -9,11 +9,12 @@ const routes = [
 ];
 
 const SideBar = () => (
-  <ul className="p-4 flex flex-col gap-2">
+  <ul className="p-4 flex flex-col gap-2" role="navigation">
     {routes.map((el, i) => (
       <NavLink
         key={i}
         to={el.route}
+        role="link"
         className={({ isActive }) =>
           isActive ? 'bg-slate-400 rounded' : undefined
         }

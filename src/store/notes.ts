@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { uid } from 'uid';
 
-interface Note {
+export interface Note {
   value: string;
   id: string;
 }
